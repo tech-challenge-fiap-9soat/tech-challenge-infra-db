@@ -31,6 +31,7 @@ resource "aws_db_parameter_group" "postgres_parameter_group" {
   family = "postgres15"
 
   lifecycle {
+    create_before_destroy = true
     replace_triggered_by = [aws_db_subnet_group.rds_subnet_group]
   }
 
@@ -55,6 +56,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
   subnet_ids = var.subnet_ids
 
   lifecycle {
+    create_before_destroy = true
     replace_triggered_by = [aws_db_subnet_group.rds_subnet_group]
   }
 
