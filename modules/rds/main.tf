@@ -57,7 +57,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 
   lifecycle {
     create_before_destroy = true
-    replace_triggered_by = [aws_db_subnet_group.rds_subnet_group]
+    replace_triggered_by = [vpc]
   }
 
   tags = {
