@@ -22,11 +22,6 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Configurar AWS CLI
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-region: ${{ secrets.AWS_REGION }}
-
       - name: Instalar Terraform
         uses: hashicorp/setup-terraform@v3
         with:
