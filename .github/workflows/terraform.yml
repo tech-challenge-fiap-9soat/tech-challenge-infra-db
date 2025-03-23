@@ -25,6 +25,7 @@ jobs:
       - name: Configurar AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: ${{ secrets.AWS_REGION }}
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Instalar Terraform
