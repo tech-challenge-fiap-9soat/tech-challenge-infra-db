@@ -30,11 +30,6 @@ resource "aws_db_parameter_group" "postgres_parameter_group" {
   name   = "${var.db_identifier}-pg"
   family = "postgres15"
 
-  lifecycle {
-    create_before_destroy = true
-    replace_triggered_by = [aws_db_subnet_group.rds_subnet_group]
-  }
-
   parameter {
     name  = "log_statement"
     value = "all"
@@ -54,11 +49,6 @@ resource "aws_db_parameter_group" "postgres_parameter_group" {
 resource "aws_db_subnet_group" "rds_subnet_group" {
   name       = "${var.db_identifier}-subnet-group"
   subnet_ids = var.subnet_ids
-
-  lifecycle {
-    create_before_destroy = true
-    replace_triggered_by = [vpc]
-  }
 
   tags = {
     Name = "${var.db_identifier}-subnet-group"
