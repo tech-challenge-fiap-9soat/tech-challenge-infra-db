@@ -3,10 +3,10 @@ name: "Terraform Deploy"
 on:
   push:
     branches:
-      - '**'
+      - 'master'
   pull_request:
     branches:
-      - '**'
+      - 'master'
 
 env:
   TF_VAR_environment: ${{ github.ref == 'refs/heads/master' && 'prod' || 'dev' }}
@@ -22,11 +22,15 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      - name: Configurar AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
       - name: Instalar Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.8.3
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Inicializar Terraform
         run: terraform init
