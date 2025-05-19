@@ -1,7 +1,7 @@
 resource "aws_security_group" "rds_sg" {
   name        = "fastfood-rds-sg"
   description = "Grupo de seguranca para o RDS"
-  vpc_id      = var.vpc_id
+  vpc_id      = "vpc-009f3d0cf2d1f7a7e"
 
   ingress {
     from_port   = 5432

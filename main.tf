@@ -1,10 +1,6 @@
-module "vpc" {
-  source = "./modules/vpc"
-}
-
 module "security_groups" {
   source = "./modules/security_groups"
-  vpc_id = module.vpc.vpc_id
+  vpc_id = "vpc-009f3d0cf2d1f7a7e"
 }
 
 module "kms" {

@@ -24,7 +24,7 @@ variable "db_max_allocated_storage" {
 variable "db_name" {
   description = "Nome do banco PostgreSQL"
   type        = string
-  default     = "fastfood"
+  default     = "payments"
 }
 
 variable "db_username" {

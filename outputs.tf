@@ -15,5 +15,5 @@ output "rds_arn" {
 
 output "vpc_id" {
   description = "ID da VPC"
-  value       = module.vpc.vpc_id
+  value       = "vpc-009f3d0cf2d1f7a7e"
 }
