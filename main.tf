@@ -17,7 +17,7 @@ module "rds" {
   db_instance_class    = "db.t3.micro"
   db_allocated_storage = 5
   db_max_allocated_storage = 10
-  db_name              = "fastfood-payments"
+  db_name              = "payments"
   db_username          = "postgres"
   db_password          = var.db_password
   security_group_ids   = [module.security_groups.rds_sg_id]
