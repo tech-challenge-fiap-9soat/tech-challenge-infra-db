@@ -5,5 +5,5 @@ output "private_subnets" {
 
 output "vpc_id" {
   description = "ID da VPC"
-  value       = "vpc-009f3d0cf2d1f7a7e"
+  value       = "vpc-0259cba6c003750f7"
 }
