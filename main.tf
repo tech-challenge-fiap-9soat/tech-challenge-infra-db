@@ -11,7 +11,7 @@ module "kms" {
   source = "./modules/kms"
 }
 
-module "rds" {
+module "rds_fastfood" {
   source               = "./modules/rds"
   db_identifier        = "fastfood-db"
   db_instance_class    = "db.t3.micro"
