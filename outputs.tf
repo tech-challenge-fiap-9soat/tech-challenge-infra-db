@@ -17,3 +17,7 @@ output "vpc_id" {
   description = "ID da VPC"
   value       = module.vpc.vpc_id
 }
+
+output "redis_endpoint" {
+  value = module.redis.primary_endpoint_address
+}

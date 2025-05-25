@@ -40,3 +40,27 @@ module "rds" {
   environment          = var.environment
   kms_key_id           = module.kms.key_id
 }
+
+provider "aws" {
+  region = "us-east-1"  # ou sua região
+}
+
+module "redis_sg" {
+  source       = "./modules/security_group"
+  name         = "fastfood"
+  vpc_id       = var.vpc_id
+  allowed_cidrs = var.k8s_cidr_blocks
+  tags         = {
+    Project = "fastfood"
+  }
+}
+
+module "redis" {
+  source             = "./modules/redis"
+  name               = "fastfood-redis"
+  subnet_ids         = var.subnet_ids
+  security_group_ids = [module.redis_sg.security_group_id]
+  tags = {
+    Project = "fastfood"
+  }
+}
