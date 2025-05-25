@@ -4,19 +4,19 @@ variable "db_identifier" {
 }
 
 variable "db_instance_class" {
-  description = "Classe da instância RDS"
+  description = "Classe da instancia RDS"
   type        = string
   default     = "db.t3.micro"
 }
 
 variable "db_allocated_storage" {
-  description = "Espaço inicial do banco de dados"
+  description = "Espaco inicial do banco de dados"
   type        = number
   default     = 5
 }
 
 variable "db_max_allocated_storage" {
-  description = "Espaço máximo que o banco pode escalar"
+  description = "Espaco maximo que o banco pode escalar"
   type        = number
   default     = 10
 }
@@ -28,7 +28,7 @@ variable "db_name" {
 }
 
 variable "db_username" {
-  description = "Usuário do banco"
+  description = "Usuario do banco"
   type        = string
 }
 

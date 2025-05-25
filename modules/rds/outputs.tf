@@ -5,10 +5,10 @@ output "rds_endpoint" {
 
 output "rds_instance_id" {
   value       = aws_db_instance.postgres.id
-  description = "ID da instância RDS"
+  description = "ID da instancia RDS"
 }
 
 output "rds_instance_arn" {
-  description = "ARN da instância RDS"
+  description = "ARN da instancia RDS"
   value       = aws_db_instance.postgres.arn
 }
