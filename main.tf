@@ -45,21 +45,11 @@ provider "aws" {
   region = "us-east-1"  # ou sua região
 }
 
-module "redis_sg" {
-  source       = "./modules/security_groups"
-  name         = "fastfood"
-  vpc_id       = var.vpc_id
-  allowed_cidrs = var.k8s_cidr_blocks
-  tags         = {
-    Project = "fastfood"
-  }
-}
-
 module "redis" {
   source             = "./modules/redis"
   name               = "fastfood-redis"
   subnet_ids         = var.subnet_ids
-  security_group_ids = [module.redis_sg.security_group_id]
+  security_group_ids = [module.security_groups.rds_sg_id]
   tags = {
     Project = "fastfood"
   }
