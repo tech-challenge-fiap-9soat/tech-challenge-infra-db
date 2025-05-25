@@ -46,7 +46,7 @@ provider "aws" {
 }
 
 module "redis_sg" {
-  source       = "./modules/security_group"
+  source       = "./modules/security_groups"
   name         = "fastfood"
   vpc_id       = var.vpc_id
   allowed_cidrs = var.k8s_cidr_blocks
